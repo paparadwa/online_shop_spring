@@ -17,7 +17,7 @@ public class SearchService {
 
     public Collection<SearchResult> search(String name) {
         return storageService.mergeMaps().values().stream()
-                .filter(searchable -> searchable.searchTerm().toLowerCase().contains(name))
+                .filter(searchable -> searchable.searchTerm().toLowerCase().contains(name.toLowerCase()))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
     }
